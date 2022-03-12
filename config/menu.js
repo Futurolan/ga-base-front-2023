@@ -3,7 +3,8 @@ const menu = [
   { type: 'config', id: 'info' },
   { type: 'config', id: 'partners' },
   { type: 'config', id: 'tournaments' },
-  { type: 'nolink',
+  {
+    type: 'nolink',
     title: 'Infos',
     children: [
       { type: 'config', id: 'info' },
@@ -16,7 +17,8 @@ const menu = [
       { type: 'page', title: 'Cosplay2019', id: 2673, link: '/cosplay' },
       { type: 'page', title: 'Les Offs2019', id: 2727, link: '/offs' },
       { type: 'page', title: 'Grand Poitiers2019', id: 1246, link: '/grand-poitiers' }
-    ] },
+    ]
+  }
 ]
 
 module.exports = menu
