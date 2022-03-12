@@ -1,19 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import getConfig from 'next/config'
 
+const { publicRuntimeConfig } = getConfig()
 import './styles.scss'
 
 class TwitchPlayer extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { animationEnded: false }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     if (this.props.active) { this.setState({ animationEnded: true }) }
   }
 
-  componentDidUpdate (prevProps) {
+  componentDidUpdate(prevProps) {
     if (!prevProps.active) {
       if (prevProps.active !== this.props.active) {
         setTimeout(() => {
@@ -29,12 +31,12 @@ class TwitchPlayer extends React.Component {
     }
   }
 
-  render () {
+  render() {
     if (this.props.active && this.state.animationEnded) {
       return (
         <div data-index={this.props.index} className={`ga-twitch-player ${this.props.active ? 'enable' : 'disable'}`} style={{ background: `url('${this.props.img}') no-repeat center center` }}>
           <iframe
-            src={`https://player.twitch.tv/?channel=${this.props.channel}`}
+            src={`https://player.twitch.tv/?channel=${this.props.channel}&parent=${publicRuntimeConfig.BASE_URL}`}
             frameBorder='none'
             scrolling='no'
             width='100%'
