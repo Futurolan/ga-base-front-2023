@@ -10,6 +10,7 @@ const menu = [
       { type: 'config', id: 'info' },
       { type: 'page', title: 'Location2022', id: 203052, link: '/location' },
       { type: 'page', title: 'Presse2022', id: 203051, link: '/espace-presse' },
+      { type: 'page', title: 'Restauration2022', id: 203110, link: '/restauration' },
       { type: 'config', id: 'schedule' },
       { type: 'config', id: 'exhibitors' },
       { type: 'config', id: 'family' },
