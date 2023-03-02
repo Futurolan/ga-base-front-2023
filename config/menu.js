@@ -8,6 +8,7 @@ const menu = [
     title: 'Infos',
     children: [
       { type: 'config', id: 'info' },
+      { type: 'page', title: 'ArenesJeu2023', id: 207156, link: '/arenes-du-jeu' },
       { type: 'page', title: 'Location2022', id: 203052, link: '/location' },
       { type: 'page', title: 'Presse2022', id: 203051, link: '/espace-presse' },
       { type: 'page', title: 'Restauration2022', id: 203110, link: '/restauration' },
