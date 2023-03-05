@@ -4,7 +4,7 @@ import gql from 'graphql-tag'
 import PropTypes from 'prop-types'
 import getConfig from 'next/config'
 import InnerHTML from 'dangerously-set-html-content'
-
+import Accordion from 'components/common/Accordion'
 import Meta from 'components/common/Meta'
 
 import './styles.scss'
