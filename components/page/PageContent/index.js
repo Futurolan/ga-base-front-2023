@@ -15,7 +15,7 @@ function PageContent ({ data: { loading, error, node } }) {
   if (error) {
     return (
       <div className='notification is-danger'>Une erreur est survenue pendant le chargement de la page
-        {<Accordion icon='fa-calendar-alt' title='Erreur' text='Erreur' />}
+        <Accordion icon='fa-calendar-alt' title='Erreur' text='Erreur' />
       </div>
     )
   }
