@@ -15,13 +15,14 @@ function FamilyActivitiesList({ data: { loading, error, nodeQuery } }) {
 
   if (nodeQuery && nodeQuery.entities && nodeQuery.entities.length > 0 && nodeQuery.entities[0].groups) {
     return (
-      <div className='ga-family-activities-list '>
+      <div className='ga-family-activities-list'>
+        <div dangerouslySetInnerHTML={{ __html: nodeQuery.entities[0].description.value }} />
         {nodeQuery.entities[0].groups.map((group) => {
           return (
             <div key={group.entity.id} className='section'>
               <h2 className='title is-size-5 has-text-weight-light is-italic'>{group.entity.name}</h2>
               <div className='content has-text-justified' dangerouslySetInnerHTML={{ __html: group.entity.description.value }} />
-              <div className='columns is-multiline is-vcentered is-centered '>
+              <div className=''>
                 {group.entity.activities.map((activity) => {
                   return (
                     <FamilyActivity key={activity.entity.id} title={activity.entity.name} url={activity.entity.url} imageUrl={activity.entity.image.derivative.url} description={activity.entity.description.value} />
@@ -50,6 +51,9 @@ export const query = gql`
   limit:1) {
     entities{
       ... on NodeFamily {
+        description:fieldFamilyDescription{
+          value:processed
+        }
         groups: fieldFamilyActivityGroups {
           entity {
             ... on ParagraphFamilyActivityGroup {
