@@ -8,24 +8,23 @@ import FamilyActivity from 'components/family/FamilyActivity'
 
 const { publicRuntimeConfig } = getConfig()
 
-function FamilyActivitiesList ({ data: { loading, error, nodeQuery } }) {
+function FamilyActivitiesList({ data: { loading, error, nodeQuery } }) {
   if (error) {
     return <div className='notification is-danger'>Une erreur est survenue pendant le chargement des activités famille !!!</div>
   }
 
   if (nodeQuery && nodeQuery.entities && nodeQuery.entities.length > 0 && nodeQuery.entities[0].groups) {
     return (
-      <div className='ga-family-activities-list has-text-centered'>
+      <div className='ga-family-activities-list '>
         {nodeQuery.entities[0].groups.map((group) => {
           return (
             <div key={group.entity.id} className='section'>
               <h2 className='title is-size-5 has-text-weight-light is-italic'>{group.entity.name}</h2>
+              <div className='content has-text-justified' dangerouslySetInnerHTML={{ __html: group.entity.description.value }} />
               <div className='columns is-multiline is-vcentered is-centered '>
                 {group.entity.activities.map((activity) => {
                   return (
-                    <div key={activity.entity.id} className='column is-2-desktop is-4-tablet'>
-                      <FamilyActivity title={activity.entity.name} url={activity.entity.url} imageUrl={activity.entity.image.derivative.url} />
-                    </div>
+                    <FamilyActivity key={activity.entity.id} title={activity.entity.name} url={activity.entity.url} imageUrl={activity.entity.image.derivative.url} description={activity.entity.description.value} />
                   )
                 })}
               </div>
@@ -56,6 +55,9 @@ export const query = gql`
             ... on ParagraphFamilyActivityGroup {
               id
               name:fieldFamilyActivityGroupName
+              description:fieldFamilyActivityGroupDesp{
+                value:processed
+              }
               activities:fieldFamilyActivityGroupActi {
                 entity {
                   ... on ParagraphFamilyActivity {
@@ -67,6 +69,9 @@ export const query = gql`
                       }
                     }
                     url:fieldFamilyActivityUrl
+                    description:fieldFamilyActivityText{
+                      value:processed
+                    }
                   }
                 }
               }
