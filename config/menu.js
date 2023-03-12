@@ -3,6 +3,7 @@ const menu = [
   { type: 'config', id: 'info' },
   { type: 'config', id: 'partners' },
   { type: 'config', id: 'tournaments' },
+  { type: 'page', title: 'Concert', id: 207511, link: '/concert' },
   {
     type: 'nolink',
     title: 'Infos',
