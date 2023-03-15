@@ -8,7 +8,7 @@ const FamilyActivity = (props) => (
     <div className='columns'>
       {(props.imageUrl || props.url) && <div className='column is-3 is-3-tablet'>
         <div className='has-text-centered'>
-          <img src={props.imageUrl} />
+          {props.url && <img src={props.imageUrl} />}
           {props.url && <a className='button is-primary is-fullwidth' target='_blank' href={props.url}>Site web</a>}
         </div>
       </div>}
