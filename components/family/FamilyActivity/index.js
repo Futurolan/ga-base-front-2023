@@ -15,7 +15,7 @@ const FamilyActivity = (props) => (
       <div className='column is-9'>
         <div className='description'>
           <h2 className='title is-5 is-marginless'>{props.title}</h2>
-          <div className='content has-text-justified' dangerouslySetInnerHTML={{ __html: props.description }} />
+          {props.description && <div className='content has-text-justified' dangerouslySetInnerHTML={{ __html: props.description }} />}
         </div>
       </div>
     </div>
