@@ -25,7 +25,7 @@ function FamilyActivitiesList({ data: { loading, error, nodeQuery } }) {
               <div className=''>
                 {group.entity.activities.map((activity) => {
                   return (
-                    <FamilyActivity key={activity.entity.id} title={activity.entity.name} url={activity.entity.url} imageUrl={activity.entity.image.derivative.url} description={activity.entity.description.value} />
+                    <FamilyActivity key={activity.entity.id} title={activity.entity.name} url={activity.entity.url} imageUrl={activity.entity.image ? activity.entity.image.derivative.url : undefined} description={activity.entity.description ? activity.entity.description.value : undefined} />
                   )
                 })}
               </div>
