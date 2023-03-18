@@ -17,7 +17,7 @@ import './styles.scss'
 
 const { publicRuntimeConfig } = getConfig()
 
-function TournamentContent ({ changeBg, data: { loading, error, node } }) {
+function TournamentContent({ changeBg, data: { loading, error, node } }) {
   if (error || (node && node.type.id !== 'tournament') || (node && node.edition.nid !== parseInt(publicRuntimeConfig.EDITION_ID))) {
     return <div className='notification is-danger'>Une erreur est survenue pendant le chargement du tournoi !!!</div>
   }
@@ -26,6 +26,9 @@ function TournamentContent ({ changeBg, data: { loading, error, node } }) {
     if (node.bgSponsor) {
       changeBg(node.bgSponsor.url)
     }
+
+    const planningContent = node.planning.value.replace(new RegExp('src="/sites/default/files/inline-images/', 'g'), `src="${publicRuntimeConfig.BACKEND_API_URL}/sites/default/files/inline-images/`)
+
     return (
       <div className='ga-tournament-content'>
         <Meta title={node.title} image={node.image ? node.image.fullhd.url : node.game.node.image.fullhd.url} description={`Toutes les informations relatives au tournoi ${node.title}`} />
@@ -63,7 +66,7 @@ function TournamentContent ({ changeBg, data: { loading, error, node } }) {
                 <i className='fas fa-calendar-alt' />&nbsp;&nbsp;Planning
               </p>
               <div className='panel-block has-background-white'>
-                <div className='content' dangerouslySetInnerHTML={{ __html: node.planning.value }} />
+                <div className='content' dangerouslySetInnerHTML={{ __html: planningContent }} />
               </div>
             </div>
             <WeezeventPlayerList tournamentNid={node.nid.toString()} reservedSlot={node.reservedSlot} size={node.size} />
@@ -74,7 +77,7 @@ function TournamentContent ({ changeBg, data: { loading, error, node } }) {
               <p className='panel-heading has-background-primary has-text-white'>
                 <i className='fas fa-ruler' />&nbsp;&nbsp;Format
               </p>
-              <div className='panel-block has-background-white'>
+              <div className='panel-block has-background-whiFte'>
                 <div dangerouslySetInnerHTML={{ __html: node.format }} />
               </div>
             </div>
