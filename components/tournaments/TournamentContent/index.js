@@ -77,7 +77,7 @@ function TournamentContent({ changeBg, data: { loading, error, node } }) {
               <p className='panel-heading has-background-primary has-text-white'>
                 <i className='fas fa-ruler' />&nbsp;&nbsp;Format
               </p>
-              <div className='panel-block has-background-whiFte'>
+              <div className='panel-block has-background-white'>
                 <div dangerouslySetInnerHTML={{ __html: node.format }} />
               </div>
             </div>
