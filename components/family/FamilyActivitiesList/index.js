@@ -19,7 +19,7 @@ function FamilyActivitiesList({ data: { loading, error, nodeQuery } }) {
         <div dangerouslySetInnerHTML={{ __html: nodeQuery.entities[0].description.value }} />
         {nodeQuery.entities[0].groups.map((group) => {
           return (
-            <div key={group.entity.id} className='section'>
+            <div key={group.entity.id} className='section' id={group.entity.name}>
               <h2 className='title is-size-5 has-text-weight-light is-italic'>{group.entity.name}</h2>
               <div className='content has-text-justified' dangerouslySetInnerHTML={{ __html: group.entity.description.value }} />
               <div className=''>
