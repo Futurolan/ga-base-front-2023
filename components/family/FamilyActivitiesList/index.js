@@ -16,12 +16,13 @@ function FamilyActivitiesList({ data: { loading, error, nodeQuery } }) {
   if (nodeQuery && nodeQuery.entities && nodeQuery.entities.length > 0 && nodeQuery.entities[0].groups) {
     return (
       <div className='ga-family-activities-list'>
+        <div id='_debutPage' className='sectionTarget'></div>
         <div dangerouslySetInnerHTML={{ __html: nodeQuery.entities[0].description.value }} />
         {nodeQuery.entities[0].groups.map((group) => {
           return (
             <div key={group.entity.id} className='section'>
               <div id={group.entity.name} className='sectionTarget'></div>
-              <h2 className='title is-italic'>{group.entity.name}</h2>
+              <h2 className='title is-italic'><a href='#_debutPage'><i className='fas fa-arrow-up'></i></a>{group.entity.name}</h2>
               <div className='content has-text-justified' dangerouslySetInnerHTML={{ __html: group.entity.description.value }} />
               <div className=''>
                 {group.entity.activities.map((activity) => {
