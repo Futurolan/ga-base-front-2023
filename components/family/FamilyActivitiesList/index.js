@@ -4,6 +4,8 @@ import gql from 'graphql-tag'
 import PropTypes from 'prop-types'
 import getConfig from 'next/config'
 
+import './styles.scss'
+
 import FamilyActivity from 'components/family/FamilyActivity'
 
 const { publicRuntimeConfig } = getConfig()
