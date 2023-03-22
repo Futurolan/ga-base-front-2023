@@ -17,7 +17,7 @@ function FamilyActivitiesList({ data: { loading, error, nodeQuery } }) {
     return (
       <div className='ga-family-activities-list'>
         <div id='_debutPage' className='sectionTarget'></div>
-        <div dangerouslySetInnerHTML={{ __html: nodeQuery.entities[0].description.value }} />
+        <div dangerouslySetInnerHTML={{ __html: nodeQuery.entities[0].description.value.replace(new RegExp('src="/sites/default/files/inline-images/', 'g'), `src="${publicRuntimeConfig.BACKEND_API_URL}/sites/default/files/inline-images/`) }} />
         {nodeQuery.entities[0].groups.map((group) => {
           return (
             <div key={group.entity.id} className='section'>
