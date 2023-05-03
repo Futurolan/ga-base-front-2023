@@ -9,8 +9,10 @@ import PegiLogo from 'components/tournaments/PegiLogo'
 import './styles.scss'
 
 const TournamentCard = (props) => (
-  <div className='ga-tournament-card card has-ribbon is-shadowless'>
-    <div className='ribbon  is-size-6 has-text-white'><Platform platform={props.platform} /> </div>
+  <div className='ga-tournament-card card has-ribbon'>
+    <div className='ribbon is-size-6 has-text-white'>
+      <Platform platform={props.platform} />
+    </div>
 
     <Link as={props.url ? props.url : `/tournois-single?nid=${props.nid}`} href={{ pathname: '/tournois-single', query: { nid: props.nid } }}>
       <a className='has-text-dark'>
@@ -28,7 +30,7 @@ const TournamentCard = (props) => (
         </div>
         <div className='card-content '>
           <div className='content has-text-weight-semibold'>
-            <h2 className='is-size-5'>{props.title}</h2>
+            <h2 className='is-size-6'>{props.title}</h2>
             <TournamentSlotProgress size={props.size} current={props.current} />
           </div>
         </div>

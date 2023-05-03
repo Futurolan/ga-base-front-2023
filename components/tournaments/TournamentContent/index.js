@@ -23,6 +23,9 @@ function TournamentContent({ changeBg, data: { loading, error, node } }) {
   }
 
   if (node) {
+    // Fix sale... A remplacer par Context ?
+    document.getElementById('genericbanner-subtitle').innerHTML = node.title;
+
     if (node.bgSponsor) {
       changeBg(node.bgSponsor.url)
     }
@@ -33,11 +36,6 @@ function TournamentContent({ changeBg, data: { loading, error, node } }) {
       <div className='ga-tournament-content'>
         <Meta title={node.title} image={node.image ? node.image.fullhd.url : node.game.node.image.fullhd.url} description={`Toutes les informations relatives au tournoi ${node.title}`} />
 
-        {node.bgSponsor ? (
-          <h1 className='title title-line has-text-centered has-text-white'><span>{node.title}</span></h1>
-        ) : (
-          <h1 className='title title-line has-text-centered'><span>{node.title}</span></h1>
-        )}
         <div className='ga-tournament-content-image'>
           <figure className='image is-5by1'>
             <img alt={`Image du tournoi ${node.title}`} src={node.image ? node.image.mobile.url : node.game.node.image.mobile.url} srcSet={`${node.image ? node.image.mobile.url : node.game.node.image.mobile.url} 705w, ${node.image ? node.image.desktop.url : node.game.node.image.desktop.url} 960w, ${node.image ? node.image.widescreen.url : node.game.node.image.widescreen.url} 1155w, ${node.image ? node.image.fullhd.url : node.game.node.image.fullhd.url} 1345w`} />
@@ -56,36 +54,30 @@ function TournamentContent({ changeBg, data: { loading, error, node } }) {
         <div className='columns'>
           <div className='column is-8'>
             <div className='box content'>
+              <h2 className='title title-line is-size-5 is-uppercase'><span><i className='fas fa-info' />&nbsp;&nbsp;Informations</span></h2>
               <div dangerouslySetInnerHTML={{ __html: node.description.value }} />
             </div>
 
             <ToornamentIframe id={node.toornamentId} />
 
-            <div className='panel'>
-              <p className='panel-heading has-background-primary has-text-white'>
-                <i className='fas fa-calendar-alt' />&nbsp;&nbsp;Planning
-              </p>
-              <div className='panel-block has-background-white'>
-                <div className='content' dangerouslySetInnerHTML={{ __html: planningContent }} />
-              </div>
+            <div className='box content'>
+              <h2 className='title title-line is-size-5 is-uppercase'><span><i className='fas fa-calendar-alt' />&nbsp;&nbsp;Planning</span></h2>
+              <div className='content' dangerouslySetInnerHTML={{ __html: planningContent }} />
             </div>
+            
             <WeezeventPlayerList tournamentNid={node.nid.toString()} reservedSlot={node.reservedSlot} size={node.size} />
           </div>
           <div className='column is-4'>
             <TicketButton subscribeUrl={node.subscribeUrl} />
-            <div className='panel'>
-              <p className='panel-heading has-background-primary has-text-white'>
-                <i className='fas fa-ruler' />&nbsp;&nbsp;Format
-              </p>
-              <div className='panel-block has-background-white'>
-                <div dangerouslySetInnerHTML={{ __html: node.format }} />
-              </div>
+
+            <div className='box content'>
+              <h2 className='title title-line is-size-5 is-uppercase'><span><i className='fas fa-ruler' />&nbsp;&nbsp;Format</span></h2>
+              <div dangerouslySetInnerHTML={{ __html: node.format }} />
             </div>
+
             {node.cashPrizeTitle && node.cashPrizeLines.length > 0 &&
-              <div className='panel'>
-                <p className='panel-heading has-background-primary has-text-white'>
-                  <i className='fas fa-money-check' />&nbsp;&nbsp;{node.cashPrizeTitle}
-                </p>
+              <div className='box content'>
+                <h2 className='title title-line is-size-5 is-uppercase'><span><i className='fas fa-money-check' />&nbsp;&nbsp;{node.cashPrizeTitle}</span></h2>
                 <table className='table is-fullwidth'>
                   <tbody>
                     {node.cashPrizeLines.map((cashPrizeLine, index) => (
@@ -99,10 +91,10 @@ function TournamentContent({ changeBg, data: { loading, error, node } }) {
                 </table>
               </div>}
             {node.rules.length > 0 &&
-              <div className='panel'>
-                <p className='panel-heading has-background-primary has-text-white'>
-                  <i className='fas fa-file-pdf' />&nbsp;&nbsp;Règlement
-                </p>
+              
+
+              <div className='box content'>
+                <h2 className='title title-line is-size-5 is-uppercase'><span><i className='fas fa-file-pdf' />&nbsp;&nbsp;Règlements</span></h2>
                 <table className='table is-fullwidth'>
                   <tbody>
                     {node.rules.map((rule, index) => (

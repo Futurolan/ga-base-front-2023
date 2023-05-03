@@ -5,7 +5,6 @@ import HomeNewsList from 'components/home/HomeNewsList'
 import HomeInfoBlocks from 'components/home/HomeInfo/index'
 import Meta from 'components/common/Meta'
 import Banner from 'components/home/Banner'
-import Hero from 'components/home/Hero'
 import StreamCarouselActivator from 'components/home/StreamCarouselActivator'
 import HomePartnersList from 'components/home/HomePartnersList'
 

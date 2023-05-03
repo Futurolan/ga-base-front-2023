@@ -1,6 +1,13 @@
 @import '../../../node_modules/bulma/sass/utilities/all';
 
 .ga-tournament-content{
+  margin-top: -130px;
+  figure {
+    img {
+      border-radius: 3px;
+      box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02)  
+    }
+  }
   .box.content{
     border-radius: 4px;
   }
@@ -23,5 +30,4 @@
   .tags{
     margin-top:0.5rem;
   }
-
 }

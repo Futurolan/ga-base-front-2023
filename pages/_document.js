@@ -1,11 +1,11 @@
 import React from 'react'
-import Document, { Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 import config from 'config/config'
 
 export default class MyDocument extends Document {
   render () {
     return (
-      <html>
+      <Html>
         <Head>
           <meta charSet='utf-8' />
           <meta name='viewport' content='width=device-width, initial-scale=1' />
@@ -38,7 +38,7 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     )
   }
 }

@@ -29,13 +29,13 @@ function HomeNewsList ({
 
   if (nodeQuery && nodeQuery.entities && nodeQuery.entities.length) {
     return (
-      <div className='ga-home-news-list has-bg-star'>
+      <div className='ga-home-news-list has-bg-light-grey'>
         <section className='section'>
           <div className='container'>
 
             <div className='columns is-multiline is-8 is-variable'>
               <div className='column is-7-desktop is-12-tablet'>
-                <h2 className='title title-line has-text-centered is-size-5 is-uppercase'><span>Actualités</span></h2>
+                <h2 className='title title-line is-size-5 is-uppercase'><span>Dernières actualités</span></h2>
                 <div className='is-multiline columns is-6 is-variable news-list'>
                   {nodeQuery.entities.map((news) => (
                     <div className='column is-6-desktop is-12' key={news.nid}>
@@ -52,10 +52,10 @@ function HomeNewsList ({
                     </div>
                   ))}
                 </div>
-                <Link href={config.news.link}><a className='button is-primary is-medium'>Voir plus d'actualités</a></Link>
+                <Link href={config.news.link}><a className='button is-primary is-block'>Voir plus d'actualités</a></Link>
               </div>
               <div className='column is-5-desktop is-12-tablet'>
-                <h2 className='title title-line has-text-centered is-size-5 is-uppercase'><span>Twitter</span></h2>
+                <h2 className='title title-line is-size-5 is-uppercase'><span>Twitter</span></h2>
                 <Timeline
                   dataSource={{
                     sourceType: 'profile',

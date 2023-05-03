@@ -6,6 +6,8 @@ import getConfig from 'next/config'
 
 import TournamentCard from 'components/tournaments/TournamentCard'
 
+import './styles.scss'
+
 const { publicRuntimeConfig } = getConfig()
 
 function TournamentList ({

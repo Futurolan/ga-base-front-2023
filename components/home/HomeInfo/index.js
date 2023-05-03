@@ -19,37 +19,37 @@ function HomeInfo ({
   if (nodeQuery && nodeQuery.entities && nodeQuery.entities.length > 0) {
     const node = nodeQuery.entities[0]
     return (
-      <div className='ga-home-info has-bg-grey-area'>
-        <section className='section is-medium'>
+      <div className='ga-home-info has-bg-star'>
+        <section className='section'>
           <div className='container'>
             <div className='columns is-variable is-8 is-centered is-multiline'>
               <div className='column is-12-tablet is-one-third-desktop has-text-centered'>
-                <div className='box has-background-dark'>
-                  <h3 className='title has-text-weight-bold has-text-white title-line'><span>{node.title1}</span></h3>
-                  <div className='content has-text-white' dangerouslySetInnerHTML={{ __html: node.content1.value }} />
+                <div className='box'>
+                  <h3 className='is-uppercase has-text-weight-bold'><span>{node.title1}</span></h3>
+                  <div className='content' dangerouslySetInnerHTML={{ __html: node.content1.value }} />
                   {node.linkText1 && node.link1 &&
                     <Link href={node.link1}>
-                      <a className='button is-primary is-medium'>{node.linkText1}</a>
+                      <a className='button is-primary'>{node.linkText1}</a>
                     </Link>}
                 </div>
               </div>
               <div className='column is-12-tablet  is-one-third-desktop has-text-centered'>
-                <div className='box has-background-dark'>
-                  <h3 className='title has-text-weight-bold has-text-white title-line'><span>{node.title2}</span></h3>
-                  <div className='content has-text-white' dangerouslySetInnerHTML={{ __html: node.content2.value }} />
+                <div className='box'>
+                  <h3 className='is-uppercase has-text-weight-bold'><span>{node.title2}</span></h3>
+                  <div className='content' dangerouslySetInnerHTML={{ __html: node.content2.value }} />
                   {node.linkText2 && node.link2 &&
                     <Link href={node.link2}>
-                      <a className='button is-primary is-medium has-text-white'>{node.linkText2}</a>
+                      <a className='button is-primary'>{node.linkText2}</a>
                     </Link>}
                 </div>
               </div>
               <div className='column is-12-tablet  is-one-third-desktop has-text-centered'>
-                <div className='box has-background-dark'>
-                  <h3 className='title has-text-weight-bold has-text-white title-line '><span>{node.title3}</span></h3>
-                  <div className='content has-text-white' dangerouslySetInnerHTML={{ __html: node.content3.value }} />
+                <div className='box'>
+                  <h3 className='is-uppercase has-text-weight-bold'><span>{node.title3}</span></h3>
+                  <div className='content' dangerouslySetInnerHTML={{ __html: node.content3.value }} />
                   {node.linkText3 && node.link3 &&
                     <Link href={node.link3}>
-                      <a className='button is-primary is-medium has-text-white'>{node.linkText3}</a>
+                      <a className='button is-primary'>{node.linkText3}</a>
                     </Link>}
                 </div>
               </div>

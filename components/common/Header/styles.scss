@@ -1,22 +1,23 @@
 
 .ga-header {
-  position:fixed;
-  width:100%;
-  z-index:10;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
   nav {
-    .navbar-brand{
-      margin-left:2rem;
-    }
-    .navbar-item{
-      margin:0 0.2rem;
-    }
-    .navbar-end{
-      a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        img {
-          height: 106px;
+    background-color: #000000;
+    .navbar-menu {
+      background-color: #000000;
+      .navbar-item{
+        margin: 0 0.2rem;
+      }
+      .navbar-end{
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img {
+            height: 54px;
+          }
         }
       }
     }
@@ -24,5 +25,5 @@
 }
 
 .site-content{
-  margin-top: 6.6rem;
+  margin-top: 3rem;
 }

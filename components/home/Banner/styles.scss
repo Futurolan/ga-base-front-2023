@@ -1,6 +1,84 @@
+@import "../../../styles/color";
+
 .ga-banner{
-  font-size:0;
-  img{
-    width:100%;
+  .ga-banner-background{
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('http://assets.iceable.com/img/noise-transparent.png'), url('http://assets.iceable.com/img/noise-transparent.png'), url('/static/img/banner.png');
+    background-position: center;
+    background-repeat: repeat, repeat, repeat, no-repeat;
+    background-size: auto, auto, auto, cover;
+    height: 340px;
   }
+  .container {
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    color: #ffffff;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0px 0px 5px #000;
+    .ga-banner-event {
+      font-size: 36px;
+      h1 {
+        font-weight: 400;
+
+      }
+      span {
+        color: $primary;
+        font-weight: 700;
+      }
+    }
+    .ga-banner-logo {
+      img {
+        animation-name: light-effect;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+    }
+    .ga-banner-info {
+      font-size: 20px;
+      font-weight: 500;
+      p:first-child {
+        color: $primary;
+      }
+    }
+  }
+}
+
+@keyframes light-effect {
+  from {
+    filter: drop-shadow(10px 10px 20px rgba(255, 255, 255, 0.35));
+  }
+  12% {
+    filter: drop-shadow(0px 12px 20px rgba(255, 255, 255, 0.3));
+  }
+  25% {
+    filter: drop-shadow(-10px 10px 20px rgba(255, 255, 255, 0.35));
+  }
+  37% {
+    filter: drop-shadow(-12px 0px 20px rgba(255, 255, 255, 0.3));
+  }
+  50% {
+    filter: drop-shadow(-10px -10px 20px rgba(255, 255, 255, 0.35));
+  }
+  62% {
+    filter: drop-shadow(0px -12px 20px rgba(255, 255, 255, 0.3));
+  }
+  75% {
+    filter: drop-shadow(10px -10px 20px rgba(255, 255, 255, 0.35));
+  }
+  87% {
+    filter: drop-shadow(12px 0px 20px rgba(255, 255, 255, 0.3));
+  }
+  100% {
+    filter: drop-shadow(10px 10px 20px rgba(255, 255, 255, 0.35));
+  }
+}
+
+
+
+
+.ga-banner {
+	position: relative;
+	overflow: hidden;
 }

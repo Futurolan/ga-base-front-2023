@@ -1,9 +1,14 @@
 .ga-home-info{
-
+  .section {
+    margin-top: -6rem;
+  }
   .box{
     height:100%;
-
+    h3 {
+      font-size: 18px;
+    }
     .content{
+      margin-top: 1rem;
       strong {
         color: #FFF;
       }

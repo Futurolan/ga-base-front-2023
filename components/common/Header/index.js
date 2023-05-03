@@ -43,6 +43,7 @@ class Header extends React.Component {
       </div>
     )
   }
+  
 
   generateMenuItem (item, index) {
     if (item.type === undefined) return null
@@ -63,6 +64,7 @@ class Header extends React.Component {
           } else {
             return <TicketMenu key={index} color={item.color} backgroundColor={item.backgroundColor} className='navbar-item is-uppercase has-text-weight-bold' />
           }
+          
         default:
           if (item.children) {
             return this.generateDropDown(<ActiveLink color={item.color} backgroundColor={item.backgroundColor} label={config[item.id].navTitle || config[item.id].title} className='navbar-link is-uppercase has-text-weight-bold' path={`/${item.id}`} as={config[item.id].link} />, item, index)
@@ -71,6 +73,8 @@ class Header extends React.Component {
           }
       }
     }
+      
+    
 
     if (item.type === 'nolink') {
       if (item.children) {
@@ -79,6 +83,7 @@ class Header extends React.Component {
         return <div key={index} style={{ backgroundColor: `${item.backgroundColor || 'transparent'}`, color: `${item.color || '#FFFFFF'}` }} className='navbar-item is-uppercase has-text-weight-bold'>{item.title}</div>
       }
     }
+    
 
     if (item.type === 'page') {
       if (item.link === undefined || item.id === undefined || item.title === undefined) return null
@@ -86,7 +91,7 @@ class Header extends React.Component {
         return this.generateDropDown(<ActiveLink color={item.color} backgroundColor={item.backgroundColor} label={item.navTitle || item.title} className='navbar-link is-uppercase has-text-weight-bold' as={item.link} path={{ pathname: '/page', query: { nid: item.id } }} />, item, index)
       } else {
         return <ActiveLink color={item.color} backgroundColor={item.backgroundColor} key={index} label={item.navTitle || item.title} className='navbar-item is-uppercase has-text-weight-bold' as={item.link} path={{ pathname: '/page', query: { nid: item.id } }} />
-      }
+      }      
     }
 
     if (item.type === 'external') {
@@ -96,7 +101,7 @@ class Header extends React.Component {
       } else {
         return (<a key={index} href={item.link} target='_blank' rel='noopener noreferrer' style={{ backgroundColor: `${item.backgroundColor || 'transparent'}`, color: `${item.color || '#FFFFFF'}` }} className='navbar-item is-uppercase has-text-weight-bold' dangerouslySetInnerHTML={{ __html: item.navTitle || item.title }} />)
       }
-    }
+    }    
 
     return null
   }
@@ -104,34 +109,36 @@ class Header extends React.Component {
   render () {
     return (
       <header className='ga-header'>
-        <nav className='navbar has-background-primary'>
-          <div className='navbar-brand'>
-            <Link href='/'>
-              <a>
-                <img alt={`Logo de l'évènement ${config.title}`} src={config.logo} />
-              </a>
-            </Link>
-            <button className='button navbar-burger is-dark' onClick={() => this.toggleMenu()}>
-              <span />
-              <span />
-              <span />
-            </button>
-          </div>
-          <div className={classNames('navbar-menu', 'has-background-primary', 'has-text-centered', { 'is-active': this.state.isOpen })}>
-            <div className='navbar-start' />
-            {menu.map((item, index) => {
-              return this.generateMenuItem(item, index)
-            })}
+        <nav className='navbar'>
+          <div className='container'>
+            <div className='navbar-brand'>
+              <Link href='/'>
+                <a>
+                  <img alt={`Logo de l'évènement ${config.title}`} src="/static/img/logo-ga.png" />
+                </a>
+              </Link>
+              <button className='button navbar-burger is-dark' onClick={() => this.toggleMenu()}>
+                <span />
+                <span />
+                <span />
+              </button>
+            </div>
+            <div className={classNames('navbar-menu', 'has-text-centered', { 'is-active': this.state.isOpen })}>
+              <div className='navbar-start' />
+              {menu.map((item, index) => {
+                return this.generateMenuItem(item, index)
+              })}
 
-            <div className='navbar-end'>
-              {config.mainPartner &&
-                <a href={config.mainPartner.url} target='_blank' rel='noopener noreferrer'>
-                  <img alt={'Logo du partenaire principal de l\'évènement'} src={config.mainPartner.logo} />
-                </a>}
-              {config.mainPartner === undefined && config.social &&
-                <div className='navbar-item'>
-                  <SocialNetworksLinks />
-                </div>}
+              <div className='navbar-end'>
+                {config.mainPartner &&
+                  <a href={config.mainPartner.url} target='_blank' rel='noopener noreferrer'>
+                    <img alt={'Logo du partenaire principal de l\'évènement'} src={config.mainPartner.logo} />
+                  </a>}
+                {config.mainPartner === undefined && config.social &&
+                  <div className='navbar-item'>
+                    <SocialNetworksLinks />
+                  </div>}
+              </div>
             </div>
           </div>
         </nav>

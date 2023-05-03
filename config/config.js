@@ -1,7 +1,8 @@
 const config = {
-  title: 'Gamers Assembly : Halloween Edition 2020',
+  title: 'Gamers Assembly',
+  subtitle: 'Halloween Edition',
   logo: '/static/img/logo-orange-100x100.png',
-  description: 'L\'édition 2020 de la Gamers Assembly Halloween Edition aura lieu du ?? au ?? ???????? à ???',
+  description: 'L\'édition 2023 de la Gamers Assembly Halloween Edition aura lieu du ?? au ?? ???????? à ???',
   metaImagePath: '/static/img/logo-orange-200x200.png',
   gaTrackingId: 'UA-128777022-7',
   mainPartner: {
@@ -30,7 +31,7 @@ const config = {
     link: '/news'
   },
   partners: {
-    title: 'Partenaires',
+    title: 'Nos partenaires',
     description: 'Retrouvez la liste de tous nos partenaires',
     link: '/partenaires'
   },

@@ -1,18 +1,19 @@
 
 $fa-font-path:  "/static/fonts";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
 @import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
 @import "../node_modules/@fortawesome/fontawesome-free/scss/solid";
 @import '../node_modules/@fortawesome/fontawesome-free/scss/brands';
 
 @import "color";
-$family-sans-serif: "Lato", sans-serif;
+$family-sans-serif: "Montserrat", sans-serif;
 $navbar-item-hover-background-color: $primary;
 $navbar-dropdown-background-color: $primary;
-$navbar-dropdown-radius: 4px;
+$navbar-dropdown-radius: 3px;
 $navbar-dropdown-item-hover-background-color: $primary;
 $navbar-dropdown-border-top: none;
 $navbar-dropdown-arrow: #FFF;
-$navbar-height: 6.625rem;
+$navbar-height: 3rem;
 
 @import "../node_modules/bulma/bulma.sass";
 @import "../node_modules/bulma-ribbon/dist/css/bulma-ribbon";

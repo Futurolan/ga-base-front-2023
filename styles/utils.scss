@@ -3,14 +3,16 @@
   .title-line {
     overflow: hidden;
     &>span {
-
+      .fas, .far, .fal {
+        color: $primary;
+      }
       position: relative;
       &:before, &:after {
-
         content: '';
         position: absolute;
         top: 50%;
-        border-bottom: 2px solid;
+        border-bottom: 3px solid;
+        border-color: $primary;
         width: 1337%;
         margin: 0 20px;
       }
@@ -23,27 +25,42 @@
     }
   }
 }
+  
 
-.has-bg-star{
-  background-size:cover;
-  background: url('../public/static/img/bg-white-star.jpg') fixed center center;
+
+.has-bg-star {
+  background-size:  cover;
+  //background: url('../public/static/img/bg-white-star.jpg') fixed center center;
+
+  background-color: #ffffff;
+  opacity: 1;
+  background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #ffffff 10px ), repeating-linear-gradient( #f7f5f555, #f7f5f5 );
 }
 
-.has-bg-grey-area {
+
+.has-bg-grey-area  {
   background-size: cover;
   background: url('../public/static/img/bg-grey-area.jpg')  fixed center center;
 }
 
-.has-cursor-pointer{
-  cursor:pointer;
+
+.has-bg-light-grey  {
+  background-color: #F3F3F3;
 }
 
 
-.image.is-5by1{
+.has-cursor-pointer {
+  cursor: pointer;
+}
+
+
+
+.image.is-5by1 {
   padding-top: 20%;
 }
 
-.image.is-5by1 img{
+
+.image.is-5by1 img {
   bottom: 0;
   left: 0;
   position: absolute;
@@ -53,6 +70,33 @@
   width: 100%;
 }
 
-.has-opacity-medium{
+
+.has-opacity-medium {
   opacity: 0.8;
 }
+
+
+.box  {
+  border-radius: 3px;
+
+  h2.title  {
+    margin-bottom: 30px;
+  }
+}
+  
+
+
+.panel  {
+  border-radius: 3px;
+  .panel-heading  {
+    border-radius: 3px 3px 0px 0px;
+    padding: 0.6em 1em;
+    font-weight: 600;
+    font-size: 1.1em;
+  }
+  
+  .panel-block  {
+    padding: 1.25rem;
+  }
+}
+  

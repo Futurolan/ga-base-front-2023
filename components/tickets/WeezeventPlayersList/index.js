@@ -19,32 +19,11 @@ function WeezeventPlayerList ({ size, reservedSlot, data: { loading, error, node
   return (
     <div className='ga-weezevent-players-list'>
 
-      <div className='panel'>
-        <p className='panel-heading has-background-primary has-text-white'>
-          <i className='fas fa-headset' />&nbsp;&nbsp;Inscrits {reservedSlot + countWeezevent}/{size}
-        </p>
+
+      <div className='box content'>
+        <h2 className='title title-line is-size-5 is-uppercase'><span><i className='fas fa-users' />&nbsp;&nbsp;Inscrits <span className="has-text-weight-normal">{reservedSlot + countWeezevent}/{size}</span></span></h2>
         <table className='table is-fullwidth'>
           <tbody>
-            {dataWeezevent.type === 'team' && dataWeezevent.data.map((object, index) => (
-              <tr key={index}>
-                <td>
-                  {object.name}
-                </td>
-                <td>
-                  {object.players.sort().join(', ')}
-                </td>
-              </tr>
-            ))}
-            {dataWeezevent.type === 'solo' && dataWeezevent.data.map((object, index) => (
-              <tr key={index}>
-                <td>
-                  {object.team}
-                </td>
-                <td>
-                  {(object.pseudo && object.pseudo !== '') ? object.pseudo : <span className='is-size-7 is-italic has-text-grey-light'>Information manquante</span>}
-                </td>
-              </tr>
-            ))}
             {[...Array(reservedSlot)].map((x, index) =>
               <tr key={`reserved${index}`}>
                 <td>
@@ -53,14 +32,35 @@ function WeezeventPlayerList ({ size, reservedSlot, data: { loading, error, node
                 <td />
               </tr>
             )}
-            {/* {[...Array(size - reservedSlot - countWeezevent > 0 ? size - reservedSlot - countWeezevent : 0)].map((x, index) => */}
-            {/* <tr key={`free${index}`}> */}
-            {/* <td ><i className='fas fa-lock-open' />&nbsp;&nbsp;Slot libre</td> */}
-            {/* <td /> */}
-            {/* </tr> */}
-            {/* )} */}
+
+            {dataWeezevent.type === 'team' && dataWeezevent.data.map((object, index) => (
+              <tr key={index}>
+                <td className="has-text-weight-medium">
+                  {object.name}
+                </td>
+                <td>
+                  {object.players.sort().join(', ')}
+                </td>
+              </tr>
+            ))}
+
+            {dataWeezevent.type === 'solo' && dataWeezevent.data.map((object, index) => (
+              <tr key={index}>
+                <td className="has-text-weight-medium">
+                  {object.team}
+                </td>
+                <td>
+                  {(object.pseudo && object.pseudo !== '') ? object.pseudo : <span className='is-size-7 is-italic has-text-grey-light'>Information manquante</span>}
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
+
+        {size - reservedSlot - countWeezevent > 0 &&
+          <div className="notification is-primary">
+            <i className="fa-solid fa-ticket-simple fa-beatt fa-rotate-by" style={{"--fa-rotate-angle": "-20deg"}}></i>&nbsp; Il reste encore {size - reservedSlot - countWeezevent} places disponibles sur ce tournoi. <span className='has-text-weight-medium'>Inscrivez-vous !</span>
+          </div>} 
       </div>
     </div>
   )

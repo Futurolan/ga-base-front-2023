@@ -1,0 +1,96 @@
+@import "../../../styles/color";
+
+@media screen and (max-width: 1023px) {
+  .ga-generic-banner {
+    .container {
+      top: 50px;
+    }
+  }
+}
+
+.ga-generic-banner{
+  .ga-generic-banner-background{
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('http://assets.iceable.com/img/noise-transparent.png'), url('/static/img/banner.png');
+    background-position: center;
+    background-repeat: repeat, repeat, no-repeat;
+    background-size: auto, auto, cover;
+    height: 270px;
+    filter: blur(0px);
+  }
+  .container {
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    color: #ffffff;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0px 0px 5px #000;
+    .ga-generic-banner-content {
+      font-size: 36px;
+      h1 {
+        font-weight: 400;
+
+      }
+      span {
+        color: $primary;
+        font-weight: 700;
+      }
+    }
+    .ga-generic-banner-logo {
+      img {
+        animation-name: light-effect;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+    }
+  }
+  
+  @media screen and (max-width: 1023px) {
+    .container {
+      top: 130px;
+      .ga-generic-banner-content {
+        font-size: 32px;
+      }
+      .ga-generic-banner-logo {
+        display: none;
+      }
+    }
+  }
+  
+  @media screen and (min-width: 1023px) {
+    .container {
+      top: 130px;
+    }
+  }
+}
+
+@keyframes light-effect {
+  from {
+    filter: drop-shadow(10px 10px 20px rgba(255, 255, 255, 0.35));
+  }
+  12% {
+    filter: drop-shadow(0px 12px 20px rgba(255, 255, 255, 0.3));
+  }
+  25% {
+    filter: drop-shadow(-10px 10px 20px rgba(255, 255, 255, 0.35));
+  }
+  37% {
+    filter: drop-shadow(-12px 0px 20px rgba(255, 255, 255, 0.3));
+  }
+  50% {
+    filter: drop-shadow(-10px -10px 20px rgba(255, 255, 255, 0.35));
+  }
+  62% {
+    filter: drop-shadow(0px -12px 20px rgba(255, 255, 255, 0.3));
+  }
+  75% {
+    filter: drop-shadow(10px -10px 20px rgba(255, 255, 255, 0.35));
+  }
+  87% {
+    filter: drop-shadow(12px 0px 20px rgba(255, 255, 255, 0.3));
+  }
+  100% {
+    filter: drop-shadow(10px 10px 20px rgba(255, 255, 255, 0.35));
+  }
+}
